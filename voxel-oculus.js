@@ -1,4 +1,8 @@
 module.exports = function (game, opts) {
+    return new Oculus(game, opts);
+}
+
+function Oculus(game, opts) {
 	var THREE = game.THREE;
 	var renderer = game.view.renderer;
 

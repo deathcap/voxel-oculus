@@ -81,7 +81,6 @@ function Oculus(game, opts) {
 		renderer.setSize( width, height );
 
 	};
-	this.setSize(game.width, game.height);
 
 	this.render = function ( scene, camera ) {
 		renderer.clear();
@@ -118,5 +117,15 @@ function Oculus(game, opts) {
 		renderer.render( _scene, _oCamera );
 	};
 
-	game.view.renderer = this;
+	this.enable = function () {
+		this.originalRenderer = game.view.renderer;
+		this.setSize(game.width, game.height);
+		game.view.renderer = this;
+	};
+
+	this.disable = function () {
+		// TODO: anything else important we need to restore?
+		this.setSize(_width * 2, _height);
+		game.view.renderer = this.originalRenderer;
+	};
 };

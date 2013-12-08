@@ -6,8 +6,9 @@ Oculus stereo view for voxeljs.
 ## Example
 
 ```javascript
-var oculus = require('voxel-oculus')
-var effect = new oculus(game, {distortion: 0.2, separation: 5});
+var createOculus = require('voxel-oculus');
+var oculus = createOculus(game, {distortion: 0.2, separation: 5});
+oculus.enable();
 ```
 
 ## Parameters

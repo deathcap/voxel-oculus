@@ -128,4 +128,6 @@ function Oculus(game, opts) {
 		this.setSize(_width * 2, _height);
 		game.view.renderer = this.originalRenderer;
 	};
+
+    this.enable();
 };

@@ -121,12 +121,23 @@ function Oculus(game, opts) {
 		this.originalRenderer = game.view.renderer;
 		this.setSize(game.width, game.height);
 		game.view.renderer = this;
+
+		this.hideLogo(true);
 	};
 
 	this.disable = function () {
 		// TODO: anything else important we need to restore?
+        // sky color?
 		this.setSize(_width * 2, _height);
 		game.view.renderer = this.originalRenderer;
+
+		this.hideLogo(false);
+	};
+
+	// hide the voxel js beta logo element on the page, if present
+	this.hideLogo = function(hide) {
+		if (document && document.getElementById('logo'))
+			document.getElementById('logo').style.visibility = hide ? 'hidden' : '';
 	};
 
     this.enable();
